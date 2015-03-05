@@ -128,7 +128,7 @@ JB :
 # hyde-bootstrap variables
 baseurl: /
 
-paginate: 5
+# paginate: 5
 
 hyde:
   version: 2.1.0
