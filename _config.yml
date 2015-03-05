@@ -125,3 +125,17 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
+# hyde-bootstrap variables
+baseurl: /
+
+paginate: 5
+
+hyde:
+  version: 2.1.0
+
+github:
+  repo: https://github.com/avnestico/avnestico.github.io
+
+# Permalinks
+permalink: pretty
+relative_permalinks: true
