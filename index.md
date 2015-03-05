@@ -1,6 +1,4 @@
 ---
 layout: default
-title: Home
+title: Write. Clean. Code.
 ---
-
-# Write. Clean. Code.
