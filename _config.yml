@@ -125,10 +125,12 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
-# hyde-bootstrap variables
+# serum variables
 baseurl: /
 
-# paginate: 5
+description: Hi! I'm Andrew. Sometimes, I code. Occasionally, I design. Here, I write.
+
+paginate: 5
 
 hyde:
   version: 2.1.0

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 
-  {% include themes/hyde-bootstrap/head.html %}
+  {% include themes/serum/head.html %}
 
-  <body>
+  <body class="theme-navy">
 
-    {% include themes/hyde-bootstrap/sidebar.html %}
+    {% include themes/serum/sidebar.html %}
 
     <div class="content container">
-      {% if page.layout == 'default' %}
+      {% if page.display_title %}
         {% if page.title %}<h1 class="page-title">{{ page.title }}</h1>{% endif %}
       {% endif %}
       {{ content }}
