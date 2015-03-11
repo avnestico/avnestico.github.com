@@ -14,7 +14,7 @@
  * +---------+  +---------+  +---------+  +---------+
  *                                          Footer
  *
- * JavaScript workaround for sticky footers in Android 4.3- browsers
+ * JavaScript workaround for sticky footers in Android 4.3- and iOS 6- browsers
  * This is necessary because these browsers only have partial support for display: -webkit-box;
  *
  * Expected behaviour:
@@ -53,6 +53,7 @@ if (isAndroid) {
     }
 }
 
+// Check for user agent of old iPhones
 var isIphone = ua.match(/iPhone OS ([\d.]+)/);
 if (isIphone) {
     iphoneVer = parseFloat(isIphone[1]);
@@ -62,6 +63,7 @@ if (isIphone) {
 }
 
 if (activateFix) {
+    // Immediately run the fix script, and have it run again whenever the screen resizes (ie on orientation change)
     webkitFlexWorkaround();
     document.addEventListener("resize", function(){ webkitFlexWorkaround(); }, false);
 }
@@ -80,13 +82,13 @@ function webkitFlexWorkaround() {
 
     if (pageHeight > viewHeight) {
         if (!isIn(link, head)) {
-            // Add android.css to page head
+            // Add webkit.css to page head
             head.appendChild(link);
         }
     }
     else {
         if (isIn(link, head)) {
-            // Remove android.css from page head
+            // Remove webkit.css from page head
             head.removeChild(link);
         }
     }

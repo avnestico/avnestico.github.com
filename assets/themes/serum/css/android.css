@@ -1,6 +1,0 @@
-/* Reset display property to fix sticky footer behaviour on Android 4.3- webkit browser. See android.js for details. */
-@media (max-width: 47.99em ) {
-    body {
-        display: block;
-    }
-}
