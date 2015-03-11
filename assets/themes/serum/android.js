@@ -61,20 +61,51 @@ if (isIphone) {
     }
 }
 
-viewHeight = document.body.scrollHeight;
+if (activateFix) {
+    webkitFlexWorkaround();
+}
 
-// Find sum of heights of page elements
-headerHeight = document.getElementsByClassName('sidebar-top')[0].scrollHeight;
-contentHeight = document.getElementsByClassName('content')[0].scrollHeight;
-footerHeight = document.getElementsByClassName('sidebar-bottom')[0].scrollHeight;
-pageHeight = headerHeight + contentHeight + footerHeight;
+function webkitFlexWorkaround() {
+    var viewHeight = document.body.scrollHeight;
 
-if (activateFix && pageHeight > viewHeight ) {
-    // Add android.css to page head
+    // Find sum of heights of page elements
+    var headerHeight = document.getElementsByClassName('sidebar-top')[0].scrollHeight;
+    var contentHeight = document.getElementsByClassName('content')[0].scrollHeight;
+    var footerHeight = document.getElementsByClassName('sidebar-bottom')[0].scrollHeight;
+    var pageHeight = headerHeight + contentHeight + footerHeight;
+
     var head = document.getElementsByTagName("head")[0];
+    var link = makeLink();
+
+    if (pageHeight > viewHeight) {
+        if (!isIn(link, head)) {
+            // Add android.css to page head
+            head.appendChild(link);
+        }
+    }
+    else {
+        if (isIn(link, head)) {
+            // Remove android.css from page head
+            head.removeChild(link);
+        }
+    }
+}
+
+function makeLink() {
     var link = document.createElement("link");
     link.setAttribute("rel", "stylesheet");
     link.setAttribute("type", "text/css");
     link.setAttribute("href", "/assets/themes/serum/css/android.css");
-    head.appendChild(link);
+    return link;
+}
+
+function isIn(link, head) {
+    // Search backwards within nodelist for matching elements to remove
+    // Adapted from http://www.javascriptkit.com/javatutors/loadjavascriptcss2.shtml
+    for (var i = head.length; i >= 0; i--) {
+        if (head[i] && head[i].getAttribute("href") != null && head[i].getAttribute("href").indexOf(link.href) != -1) {
+            return true;
+        }
+    }
+    return false;
 }
