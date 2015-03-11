@@ -98,15 +98,15 @@ function makeLink() {
     var link = document.createElement("link");
     link.setAttribute("rel", "stylesheet");
     link.setAttribute("type", "text/css");
-    link.setAttribute("href", "/assets/themes/serum/css/android.css");
+    link.setAttribute("href", "/assets/themes/serum/css/webkit.css");
     return link;
 }
 
-function isIn(link, head) {
-    // Search backwards within nodelist for matching elements to remove
+function isIn(needle, haystack) {
+    // Search backwards within haystack for matching needle
     // Adapted from http://www.javascriptkit.com/javatutors/loadjavascriptcss2.shtml
-    for (var i = head.length; i >= 0; i--) {
-        if (head[i] && head[i].getAttribute("href") != null && head[i].getAttribute("href").indexOf(link.href) != -1) {
+    for (var i = haystack.length; i >= 0; i--) {
+        if (haystack[i] && haystack[i].getAttribute("href") != null && haystack[i].getAttribute("href").indexOf(needle.href) != -1) {
             return true;
         }
     }
