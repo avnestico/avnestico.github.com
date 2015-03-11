@@ -65,7 +65,7 @@ if (isIphone) {
 if (activateFix) {
     // Immediately run the fix script, and have it run again whenever the screen resizes (ie on orientation change)
     webkitFlexWorkaround();
-    document.addEventListener("resize", function(){ webkitFlexWorkaround(); }, false);
+    window.addEventListener("resize", function(){ webkitFlexWorkaround(); });
 }
 
 function webkitFlexWorkaround() {
