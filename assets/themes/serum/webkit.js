@@ -27,10 +27,10 @@
  *   Case 2) Flex scaling is ignored; footer is still fixed at the bottom of the page, overlapping the content
  *
  * Workaround:
- *   When the sum of the vertical divs is greater than the viewport height, set display: block;
+ *   Check page - if the sum of the vertical divs is greater than the viewport height, set display: block;
  *   This disables flexbox when it would cause problems; by falling back to display: block;, the header, content, and
  *     footer are displayed normally
- *   Run this test again whenever orientation changes
+ *   Run this check again whenever orientation changes
  *
  * Side-effects:
  *   Divs must be positioned in their correct order in html, as all order properties are ignored when display is not
@@ -55,7 +55,7 @@ if (isAndroid) {
 }
 
 // Check for user agent of old iPhones
-var isIphone = ua.match(/iPhone OS ([\d.]+)/);
+var isIphone = ua.match(/iPhone OS (\d)/);
 if (isIphone) {
     iphoneVer = parseFloat(isIphone[1]);
     if (iphoneVer < 7) {
