@@ -38,29 +38,43 @@
 
 // Check for user agent that contains 'Android' but not 'Chrome' or 'Firefox'
 var ua = navigator.userAgent;
-var isandroid = ua.match(/Android ([\d.]+)/);
-if (isandroid) {
-    var ischrome = ua.match(/Chrome/);
-    var isfirefox = ua.match(/Firefox/);
+var activateFix = false;
 
-    if (isandroid && !ischrome && !isfirefox) {
-        androidVer = parseFloat(isandroid[1]);
-        viewHeight = document.body.scrollHeight;
+var isAndroid = ua.match(/Android ([\d.]+)/);
+if (isAndroid) {
+    var isChrome = ua.match(/Chrome/);
+    var isFirefox = ua.match(/Firefox/);
 
-        // Find sum of heights of page elements
-        headerHeight = document.getElementsByClassName('sidebar-top')[0].scrollHeight;
-        contentHeight = document.getElementsByClassName('content')[0].scrollHeight;
-        footerHeight = document.getElementsByClassName('sidebar-bottom')[0].scrollHeight;
-        pageHeight = headerHeight + contentHeight + footerHeight;
-
-        if (androidVer < 4.4 && pageHeight > viewHeight ) {
-            // Add android.css to page head
-            var head = document.getElementsByTagName("head")[0];
-            var link = document.createElement("link");
-            link.setAttribute("rel", "stylesheet");
-            link.setAttribute("type", "text/css");
-            link.setAttribute("href", "/assets/themes/serum/css/android.css");
-            head.appendChild(link);
+    if (!isChrome && !isFirefox) {
+        androidVer = parseFloat(isAndroid[1]);
+        if (androidVer < 4.4) {
+            activateFix = true;
         }
     }
+}
+
+var isIphone = ua.match(/iPhone OS ([\d.]+)/);
+if (isIphone) {
+    iphoneVer = parseFloat(isIphone[1]);
+    if (iphoneVer < 7) {
+        activateFix = true;
+    }
+}
+
+viewHeight = document.body.scrollHeight;
+
+// Find sum of heights of page elements
+headerHeight = document.getElementsByClassName('sidebar-top')[0].scrollHeight;
+contentHeight = document.getElementsByClassName('content')[0].scrollHeight;
+footerHeight = document.getElementsByClassName('sidebar-bottom')[0].scrollHeight;
+pageHeight = headerHeight + contentHeight + footerHeight;
+
+if (activateFix && pageHeight > viewHeight ) {
+    // Add android.css to page head
+    var head = document.getElementsByTagName("head")[0];
+    var link = document.createElement("link");
+    link.setAttribute("rel", "stylesheet");
+    link.setAttribute("type", "text/css");
+    link.setAttribute("href", "/assets/themes/serum/css/android.css");
+    head.appendChild(link);
 }
