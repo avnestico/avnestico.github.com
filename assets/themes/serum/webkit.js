@@ -41,7 +41,7 @@ var ua = navigator.userAgent;
 var activateFix = false;
 
 // Check for user agent of old Androids not running Chrome or Firefox
-var isAndroid = ua.match(/Android ([\d.]+)/);
+var isAndroid = ua.match(/Android (\d+.\d+)/);
 if (isAndroid) {
     var isChrome = ua.match(/Chrome/);
     var isFirefox = ua.match(/Firefox/);
