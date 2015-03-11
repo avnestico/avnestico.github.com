@@ -63,6 +63,7 @@ if (isIphone) {
 
 if (activateFix) {
     webkitFlexWorkaround();
+    document.addEventListener("resize", function(){ webkitFlexWorkaround(); }, false);
 }
 
 function webkitFlexWorkaround() {
