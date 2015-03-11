@@ -64,8 +64,19 @@ if (isIphone) {
 
 if (activateFix) {
     // Immediately run the fix script, and have it run again whenever the screen resizes (ie on orientation change)
+    // This is needed to cover the edge case of a page that needs the fix in landscape but does not in portrait
+    addCssToHead("/assets/themes/serum/css/webkit.css");
     webkitFlexWorkaround();
     window.addEventListener("resize", function(){ webkitFlexWorkaround(); });
+}
+
+function addCssToHead(filename) {
+    var head = document.getElementsByTagName("head")[0];
+    var link = document.createElement("link");
+    link.setAttribute("rel", "stylesheet");
+    link.setAttribute("type", "text/css");
+    link.setAttribute("href", filename);
+    head.appendChild(link);
 }
 
 function webkitFlexWorkaround() {
@@ -77,38 +88,12 @@ function webkitFlexWorkaround() {
     var footerHeight = document.getElementsByClassName('sidebar-bottom')[0].scrollHeight;
     var pageHeight = headerHeight + contentHeight + footerHeight;
 
-    var head = document.getElementsByTagName("head")[0];
-    var link = makeLink();
-
+    // If the elements are larger than the view height, the browser displays the buggy behaviour
+    // The full if-else statement is needed to overwrite the id value when orientation changes
     if (pageHeight > viewHeight) {
-        if (!isIn(link, head)) {
-            // Add webkit.css to page head
-            head.appendChild(link);
-        }
+        document.body.id = "webkit-fix-enabled";
     }
     else {
-        if (isIn(link, head)) {
-            // Remove webkit.css from page head
-            head.removeChild(link);
-        }
+        document.body.id = "webkit-fix-disabled";
     }
-}
-
-function makeLink() {
-    var link = document.createElement("link");
-    link.setAttribute("rel", "stylesheet");
-    link.setAttribute("type", "text/css");
-    link.setAttribute("href", "/assets/themes/serum/css/webkit.css");
-    return link;
-}
-
-function isIn(needle, haystack) {
-    // Search backwards within haystack for matching needle
-    // Adapted from http://www.javascriptkit.com/javatutors/loadjavascriptcss2.shtml
-    for (var i = haystack.length; i >= 0; i--) {
-        if (haystack[i] && haystack[i].getAttribute("href") != null && haystack[i].getAttribute("href").indexOf(needle.href) != -1) {
-            return true;
-        }
-    }
-    return false;
 }
