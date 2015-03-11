@@ -1,4 +1,7 @@
 /**
+ * JavaScript workaround for sticky footers in Android 4.3- and iOS 6- browsers
+ * This is necessary because these browsers only have partial support for display: -webkit-box;
+ *
  * Sticky footers, illustrated:
  *
  * +---------+  +---------+  +---------+  +---------+
@@ -14,32 +17,30 @@
  * +---------+  +---------+  +---------+  +---------+
  *                                          Footer
  *
- * JavaScript workaround for sticky footers in Android 4.3- and iOS 6- browsers
- * This is necessary because these browsers only have partial support for display: -webkit-box;
- *
  * Expected behaviour:
- *   Case 1) When the sum of the heights of the page elements is smaller than the viewport height, footer is fixed at
- *     the bottom of the screen
+ *   Case 1) When the sum of the heights of the page elements is smaller than or equal to the viewport height, footer is
+ *     fixed at the bottom of the screen
  *   Case 2) When combined height is greater than the viewport height, footer is fluid below content
  *
- * Actual behaviour:
+ * Actual behaviour in legacy webkit browsers:
  *   Case 1) Works as advertised
- *   Case 2) Flex scaling is ignored. Footer is displayed at the bottom of the page, overlapping the content
+ *   Case 2) Flex scaling is ignored; footer is still fixed at the bottom of the page, overlapping the content
  *
  * Workaround:
  *   When the sum of the vertical divs is greater than the viewport height, set display: block;
- *   This disables flexbox when it would cause problems. By falling back to display: block;, the header, content, and
+ *   This disables flexbox when it would cause problems; by falling back to display: block;, the header, content, and
  *     footer are displayed normally
+ *   Run this test again whenever orientation changes
  *
  * Side-effects:
  *   Divs must be positioned in their correct order in html, as all order properties are ignored when display is not
  *     set to flex
  */
 
-// Check for user agent that contains 'Android' but not 'Chrome' or 'Firefox'
 var ua = navigator.userAgent;
 var activateFix = false;
 
+// Check for user agent of old Androids not running Chrome or Firefox
 var isAndroid = ua.match(/Android ([\d.]+)/);
 if (isAndroid) {
     var isChrome = ua.match(/Chrome/);
