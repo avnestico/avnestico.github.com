@@ -139,5 +139,5 @@ github:
   repo: https://github.com/avnestico/avnestico.github.io
 
 # Permalinks
-permalink: pretty
+permalink: :year/:month/:day/:title/
 relative_permalinks: true
