@@ -5,6 +5,12 @@ description: ""
 tags: [news, tech, apple, usb]
 
 images:
+  - src: "usb_type_c.jpg"
+    caption: "USB Type-C (left) is comparable in size to the Lightning and Micro-USB type-B ports commonly seen in phones today."
+    copyright: true
+    ret_name: "Ars Technica"
+    ret_url: "http://arstechnica.com/gadgets/2015/01/usb-3-1-and-type-c-the-only-stuff-at-ces-that-everyone-is-going-to-use/"
+
   - src: "usb_connectors.jpg"
     caption: "These ports will all be replaced by USB type-C. From left to right: micro-USB type-B, USB type-A, USB type-B, and mini-USB type-B."
     ret_name: "Wikipedia"
@@ -12,11 +18,13 @@ images:
 ---
 {% include JB/setup %}
 
+{% assign image=page.images[0] %}{% include themes/serum/image.html image=image %}
+
 While the rest of the world spent Monday afternoon gawking at [Apple's $17,000 watch](http://www.hodinkee.com/blog/apple-confirms-apple-watch-features), it was the company's other new release that caught my eye. [The new Macbook](http://www.wired.com/2015/03/apple-new-macbook/) sports an improved keyboard and trackpad, a 12-inch screen, and a $1,549 (CAD) base price. More interesting than what it's gained, though, is what it's lost: besides being thinner and lighter than the 11-inch Macbook Air, the new Macbook has slimmed its port count down to two. The headphone jack remains, but USB, Thunderbolt, and even the MagSafe charging port have all been axed and replaced by a single new port, alone on the left-hand side of the machine. It's called USB type-C, and it's going to be everywhere soon.
 
 What's so important about another new cable, you ask? For starters, it's reversible, which means you'll never need to jam the connector in the port to figure out whether or not it's upside down. It's capable of running a 5K (!) display on its own. It can transmit enough power to charge all but the beefiest of gaming laptops. And it does all this in a package [slightly larger than a Lightning or micro-USB](http://cdn.arstechnica.net/wp-content/uploads/2015/01/IMG_0713.jpg), which means it can be everywhere from printers and desktops all the way down to phones and wearables. It's not hard to see how important USB type-C is once you realize just how many different connectors it'll make obsolete.
 
-{% assign image=page.images[0] %}{% include themes/serum/image.html image=image %}
+{% assign image=page.images[1] %}{% include themes/serum/image.html image=image %}
 
 If you look at the picture above, you'll see that the USB type-A cable has four gold contacts; two are used for power while the other two transmit data. This physical layout hasn't changed once, even though USB transfer speeds are hundreds of times faster than they were when the cable was designed twenty years ago. Drawing on twenty years' worth of engineering advances, efforts to similarly future-proof the type-C cable have resulted in a smaller, more robust connector which houses no fewer than twenty-four contacts.
 
