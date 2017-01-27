@@ -61,7 +61,7 @@ JB :
   #   http://s3.amazonaws.com/yoursite/themes/watermelon
   #   /assets
   #
-  ASSET_PATH : false
+  ASSET_PATH : /assets/themes/serum
 
   # These paths are to the main pages Jekyll-Bootstrap ships with.
   # Some JB helpers refer to these paths; change them here if needed.
@@ -124,8 +124,14 @@ JB :
   # and include your custom code. Your custom file must be defined at:
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
+
+# Gems
+gems: [jekyll-paginate]
   
 # serum variables
+theme:
+  name: serum
+
 baseurl: /
 
 description: Hi! I'm Andrew. Sometimes, I code. Occasionally, I design. Here, I write.
