@@ -129,9 +129,6 @@ JB :
 gems: [jekyll-paginate]
   
 # serum variables
-theme:
-  name: serum
-
 baseurl: /
 
 description: Hi! I'm Andrew. Sometimes, I code. Occasionally, I design. Here, I write.
