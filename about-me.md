@@ -6,17 +6,19 @@ title: About Me
 
 My name is Andrew Nestico, if that wasn't already clear.
 
-I'm a student at the University of Toronto, where I'm an active member of the engineering undergraduate community. Frosh Week leader, Charity Date Auction emcee, and Super Smash Bros Club executive are just a few of the hats that I wear around there. I also dabble in my program, Engineering Science, from time to time.
+I've graduated from the University of Toronto, where I was an active member of the engineering undergraduate community. Frosh Week leader, Charity Date Auction emcee, and Super Smash Bros Club executive are just a few of the hats that I wore around there. I also dabbled in my program, Engineering Science, from time to time.
 
 I built the computer that I wrote this website on. The process to make each was surprisingly similar, now that I think about it: I didn't make either from scratch; both involved weighing the merits of different components to choose a set that I felt was optimal; I probably did more research than necessary for both; and both are uniquely mine, which makes me smile.
 
-I currently work as a full-time intern with Red Hat Canada. With them, I code primarily in Java, Python, and Bash Shell, and I've gotten experience with tools like Docker and processes like Continuous Integration.
+I recently worked as a full-time intern with Red Hat Canada. With them, I coded primarily in Java, Python, and Bash Shell, and I've gotten experience with tools like Docker and processes like Continuous Integration.
 
 I've played ice hockey since I was five years old. I played somewhat competitively when I was younger, and I still play in summer leagues to this day.
 
 When I code, I host on both [GitHub](https://github.com/avnestico) and [BitBucket](https://bitbucket.org/avnestico); there's no point in having distributed version control if you're going to give yourself a single point of failure anyway.
 
 I write little scripts that make my life easier. For instance, I wrote a script that does the work of the previous point for me - if I set up a code repository on one of GitHub or Bitbucket, the script puts it on the other. You can find it [here](https://github.com/avnestico/version-control-distributor). And [here](https://bitbucket.org/avnestico/version-control-distributor).
+
+I've played video games for pretty much all of my life, 
 
 I manage my own (meager) investments. I'm no expert, but I'm betting that a strategy of investing in index funds and bonds will keep transaction costs down while providing strong, stable returns.
 
